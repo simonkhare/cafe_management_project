@@ -6,7 +6,7 @@ A full-stack café management platform built with **Spring Boot, Thymeleaf, and 
 
 ## 🛠️ Tech Stack
 
-* **Backend:** Java 17, Spring Boot, Spring Data JPA
+* **Backend:** Java 26, Spring Boot, Spring Data JPA
 * **Database:** MySQL
 * **Frontend:** Thymeleaf, Bootstrap 5, Bootstrap Icons, Poppins Font
 
