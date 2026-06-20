@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Administrative Gate | Cafe Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark d-flex align-items-center vh-100">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card p-4 border-0 shadow-lg text-white bg-secondary">
+                <h3 class="fw-bold text-center mb-1">🛠️ Admin Workspace</h3>
+                <p class="text-center text-light small mb-3">System-wide Administrative Authorization Required</p>
+
+                <div th:if="${error}" class="alert alert-danger py-2 text-dark text-center small th-text" th:text="${error}"></div>
+
+                <form th:action="@{/login}" method="POST">
+                    <input type="hidden" name="expectedRole" value="ADMIN">
+                    <div class="mb-3">
+                        <label class="small fw-bold mb-1">Admin Key Identification</label>
+                        <input type="text" class="form-control" name="username" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="small fw-bold mb-1">Security Clear Code</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 fw-bold">Initialize Root System Override</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

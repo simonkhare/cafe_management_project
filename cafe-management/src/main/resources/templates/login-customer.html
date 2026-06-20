@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login | The Aroma Cafe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1200') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .btn-coffee {
+            background-color: #6F4E37;
+            color: white;
+        }
+        .btn-coffee:hover {
+            background-color: #5a3e2b;
+            color: white;
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center vh-100">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card p-4">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold text-dark">☕ The Aroma Cafe</h2>
+                    <p class="text-muted">Welcome back! Access your customer profile.</p>
+                </div>
+
+                <div th:if="${error}" class="alert alert-danger" role="alert" th:text="${error}"></div>
+                <div th:if="${success}" class="alert alert-success" role="alert" th:text="${success}"></div>
+
+                <form th:action="@{/login}" method="POST" id="loginForm">
+                    <input type="hidden" name="expectedRole" value="CUSTOMER">
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-coffee w-100 py-2 mb-3 fw-bold">Login as Customer</button>
+                </form>
+
+                <div class="text-center mb-2">
+                    <a th:href="@{/register}" class="text-decoration-none text-primary small">Don't have an account? Register here</a>
+                </div>
+
+                <hr class="my-3 text-muted">
+
+                <div class="d-flex justify-content-between align-items-center px-1">
+                    <a th:href="@{/login/employee}" class="text-decoration-none text-secondary small">Staff Login</a>
+                    <a th:href="@{/login/admin}" class="text-decoration-none text-danger small fw-bold">⚙️ Admin Control Hub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
